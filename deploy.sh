@@ -84,7 +84,7 @@ SERVICE_PORTS=(3003, 80, 3002, 3001)
 for SERVICE_PATH in "${!SERVICE_PATHS[@]}"; do
     cd ${SERVICE_PATHS[$SERVICE_PATH]}
     IMAGE_NAME=`echo ${SERVICE_PATHS[$SERVICE_PATH]} | cut -d/ -f2`
-    docker build . -t $IMAGE_NAME;
+    docker build -t $IMAGE_NAME -f ./Dockerfile .;
     helm install $IMAGE_NAME ./helm/ --set service.port=${SERVICE_PORTS[$SERVICE_PATH]}
     cd ../../
 done
