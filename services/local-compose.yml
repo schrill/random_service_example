@@ -50,6 +50,6 @@ services:
   db:
     image: redis:alpine
     container_name: redis
-    hostname: redis-headless
+    hostname: redis-master
     ports:
       - '127.0.0.1:6379:6379'

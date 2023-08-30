@@ -9,7 +9,7 @@ from functools import reduce
 
 class handler(BaseHTTPRequestHandler):
 
-  r = redis.Redis(host='redis-headless', port=6379, db=0)
+  r = redis.Redis(host='redis-master', port=6379, db=0)
 
   def _set_headers(s):
         s.send_response(200)

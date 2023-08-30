@@ -9,10 +9,10 @@ Help()
    echo "h     Print this Help."
    echo "l     Local deployment using local docker via compose."
    echo -e "p    Purge Local deployment done using local docker via compose. \n      CAUTION: This will remove all files and configuration in docker"
-   echo -e "u    Purge Local deployment done using local docker via minikube. \n      CAUTION: This will remove all files and configuration in minikube and in docker"
    echo "m     Local deployment using local docker via minikube."
-   echo "c     Cloud deployment"
-   echo "c     Cloud deployment"
+   echo -e "u    Purge Local deployment done using Helm on the local docker via minikube. \n      CAUTION: This will remove all files and configuration in minikube and in docker"
+   echo "c    Cloud deployment"
+   echo -e "r    Purge Cloud deployment done using Helm \n"
    echo
 }
 
@@ -78,7 +78,7 @@ Cloud()
 {
 helm repo add bitnami https://charts.bitnami.com/bitnami
 helm repo update
-helm install redis bitnami/redis --set service.port=6379
+helm install redis bitnami/redis --set service.port=6379 --set auth.enabled=false
 SERVICE_PATHS=(services/random-*)
 SERVICE_PORTS=(3003, 80, 3002, 3001)
 for SERVICE_PATH in "${!SERVICE_PATHS[@]}"; do
@@ -90,7 +90,18 @@ for SERVICE_PATH in "${!SERVICE_PATHS[@]}"; do
 done
 }
 
-while getopts ":hlmcpu" option; do
+Purge-Local-cloud()
+{
+SERVICE_PATHS=(services/random-*)
+for SERVICE_PATH in "${!SERVICE_PATHS[@]}"; do
+    cd ${SERVICE_PATHS[$SERVICE_PATH]}
+    IMAGE_NAME=`echo ${SERVICE_PATHS[$SERVICE_PATH]} | cut -d/ -f2`
+    helm uninstall $IMAGE_NAME
+    cd ../../
+done
+}
+
+while getopts ":hlmcpur" option; do
    case $option in
       h) Help
          exit;;
@@ -98,6 +109,7 @@ while getopts ":hlmcpu" option; do
       m)  Local-minikube;;
       p)  Purge-Local-compose;;
       u)  Purge-Local-minikube;;
+      r)  Purge-Local-cloud;;
       c)  Cloud;;
      \?)echo "Error: Invalid option, use -h to see available options"
          exit;;
