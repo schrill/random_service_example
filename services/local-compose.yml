@@ -1,0 +1,55 @@
+version: "3"
+services:
+  random_egress:
+    build:
+      context: random-egress
+      dockerfile: Dockerfile
+    image: random-egress
+    container_name: random-egress
+    hostname: egress
+    ports:
+      - '80:80'
+
+  random_number:
+    depends_on:
+      - random_egress
+    build:
+      context: random-number
+      dockerfile: Dockerfile
+    image: random-number
+    container_name: random-number
+    hostname: random-number
+    ports:
+      - '127.0.0.1:3001:3001'
+
+  random_name:
+    depends_on:
+      - random_egress
+    build:
+      context: random-name
+      dockerfile: Dockerfile
+    image: random-name
+    container_name: random-name
+    hostname: random-name
+    ports:
+      - '127.0.0.1:3002:3002'
+
+  random_content:
+    depends_on:
+      - random_egress
+      - db
+    build:
+      context: random-content
+      dockerfile: Dockerfile
+    image: random-content
+    container_name: random-content
+    hostname: random-content
+    ports:
+      - '127.0.0.1:3003:3003'
+
+  db:
+    image: redis:alpine
+    container_name: redis
+    hostname: redis-headless
+    ports:
+      - '127.0.0.1:6379:6379'
