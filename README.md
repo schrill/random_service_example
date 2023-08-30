@@ -6,80 +6,80 @@
     .
     ├── deploy.sh                                 - main deployment helper
     ├── infra                                     - AWS infrastructure resource deployment structure
-├── REDME.md
-└── services
-    ├── local-compose.yml                     - Local compose file to deploy the services
-    ├── random-content                        - Random content service accessible through localhost on port 3003 or from egress at http://localhost/content 
-    │   ├── app.py
-    │   ├── Dockerfile
-    │   ├── helm
-    │   │   ├── charts
-    │   │   ├── Chart.yaml
-    │   │   ├── templates
-    │   │   │   ├── deployment.yaml
-    │   │   │   ├── _helpers.tpl
-    │   │   │   ├── hpa.yaml
-    │   │   │   ├── ingress.yaml
-    │   │   │   ├── NOTES.txt
-    │   │   │   ├── serviceaccount.yaml
-    │   │   │   ├── service.yaml
-    │   │   │   └── tests
-    │   │   │       └── test-connection.yaml
-    │   │   └── values.yaml
-    │   └── requirements.txt
-    ├── random-egress                         - Random egress service running nginx accessible at http://localhost/
-    │   ├── Dockerfile
-    │   ├── helm
-    │   │   ├── charts
-    │   │   ├── Chart.yaml
-    │   │   ├── templates
-    │   │   │   ├── deployment.yaml
-    │   │   │   ├── _helpers.tpl
-    │   │   │   ├── hpa.yaml
-    │   │   │   ├── ingress.yaml
-    │   │   │   ├── NOTES.txt
-    │   │   │   ├── serviceaccount.yaml
-    │   │   │   ├── service.yaml
-    │   │   │   └── tests
-    │   │   │       └── test-connection.yaml
-    │   │   └── values.yaml
-    │   └── nginx.conf
-    ├── random-name                           - Random name service accessible through localhost on port 3002 or from egress at http://localhost/name
-    │   ├── app.py
-    │   ├── Dockerfile
-    │   ├── helm
-    │   │   ├── charts
-    │   │   ├── Chart.yaml
-    │   │   ├── templates
-    │   │   │   ├── deployment.yaml
-    │   │   │   ├── _helpers.tpl
-    │   │   │   ├── hpa.yaml
-    │   │   │   ├── ingress.yaml
-    │   │   │   ├── NOTES.txt
-    │   │   │   ├── serviceaccount.yaml
-    │   │   │   ├── service.yaml
-    │   │   │   └── tests
-    │   │   │       └── test-connection.yaml
-    │   │   └── values.yaml
-    │   └── requirements.txt                           - Random name service accessible through localhost on port 3002 or from egress at http://localhost/name
-    └── random-number                                  - Random number service accessible through localhost on port 3001 or from egress at http://localhost/number
-        ├── app.py
-        ├── Dockerfile
-        ├── helm
-        │   ├── charts
-        │   ├── Chart.yaml
-        │   ├── templates
-        │   │   ├── deployment.yaml
-        │   │   ├── _helpers.tpl
-        │   │   ├── hpa.yaml
-        │   │   ├── ingress.yaml
-        │   │   ├── NOTES.txt
-        │   │   ├── serviceaccount.yaml
-        │   │   ├── service.yaml
-        │   │   └── tests
-        │   │       └── test-connection.yaml
-        │   └── values.yaml
-        └── requirements.txt
+    ├── REDME.md
+    └── services
+        ├── local-compose.yml                     - Local compose file to deploy the services
+        ├── random-content                        - Random content service accessible through localhost on port 3003 or from egress at http://localhost/content 
+        │   ├── app.py
+        │   ├── Dockerfile
+        │   ├── helm
+        │   │   ├── charts
+        │   │   ├── Chart.yaml
+        │   │   ├── templates
+        │   │   │   ├── deployment.yaml
+        │   │   │   ├── _helpers.tpl
+        │   │   │   ├── hpa.yaml
+        │   │   │   ├── ingress.yaml
+        │   │   │   ├── NOTES.txt
+        │   │   │   ├── serviceaccount.yaml
+        │   │   │   ├── service.yaml
+        │   │   │   └── tests
+        │   │   │       └── test-connection.yaml
+        │   │   └── values.yaml
+        │   └── requirements.txt
+        ├── random-egress                         - Random egress service running nginx accessible at http://localhost/
+        │   ├── Dockerfile
+        │   ├── helm
+        │   │   ├── charts
+        │   │   ├── Chart.yaml
+        │   │   ├── templates
+        │   │   │   ├── deployment.yaml
+        │   │   │   ├── _helpers.tpl
+        │   │   │   ├── hpa.yaml
+        │   │   │   ├── ingress.yaml
+        │   │   │   ├── NOTES.txt
+        │   │   │   ├── serviceaccount.yaml
+        │   │   │   ├── service.yaml
+        │   │   │   └── tests
+        │   │   │       └── test-connection.yaml
+        │   │   └── values.yaml
+        │   └── nginx.conf
+        ├── random-name                           - Random name service accessible through localhost on port 3002 or from egress at http://localhost/name
+        │   ├── app.py
+        │   ├── Dockerfile
+        │   ├── helm
+        │   │   ├── charts
+        │   │   ├── Chart.yaml
+        │   │   ├── templates
+        │   │   │   ├── deployment.yaml
+        │   │   │   ├── _helpers.tpl
+        │   │   │   ├── hpa.yaml
+        │   │   │   ├── ingress.yaml
+        │   │   │   ├── NOTES.txt
+        │   │   │   ├── serviceaccount.yaml
+        │   │   │   ├── service.yaml
+        │   │   │   └── tests
+        │   │   │       └── test-connection.yaml
+        │   │   └── values.yaml
+        │   └── requirements.txt                           - Random name service accessible through localhost on port 3002 or from egress at http://localhost/name
+        └── random-number                                  - Random number service accessible through localhost on port 3001 or from egress at http://localhost/number
+            ├── app.py
+            ├── Dockerfile
+            ├── helm
+            │   ├── charts
+            │   ├── Chart.yaml
+            │   ├── templates
+            │   │   ├── deployment.yaml
+            │   │   ├── _helpers.tpl
+            │   │   ├── hpa.yaml
+            │   │   ├── ingress.yaml
+            │   │   ├── NOTES.txt
+            │   │   ├── serviceaccount.yaml
+            │   │   ├── service.yaml
+            │   │   └── tests
+            │   │       └── test-connection.yaml
+            │   └── values.yaml
+            └── requirements.txt
 
 ### Deployment is done through the deploy.sh bash helper, please use -h for more details
 
