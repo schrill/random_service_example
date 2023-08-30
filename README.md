@@ -3,9 +3,9 @@
 ## Included in this repository, are 3 microservice random example applications writen in python as well as the means to locally develop them and deploy them on a EC2 instance running kubernates.
 
 ## File structure
-.
-├── deploy.sh                                 - main deployment helper
-├── infra                                     - AWS infrastructure resource deployment structure
+    .
+    ├── deploy.sh                                 - main deployment helper
+    ├── infra                                     - AWS infrastructure resource deployment structure
 ├── REDME.md
 └── services
     ├── local-compose.yml                     - Local compose file to deploy the services
