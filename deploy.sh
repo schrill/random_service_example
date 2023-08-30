@@ -76,6 +76,7 @@ armaggedon
 
 Cloud()
 {
+Check
 helm repo add bitnami https://charts.bitnami.com/bitnami
 helm repo update
 helm install redis bitnami/redis --set service.port=6379 --set auth.enabled=false
@@ -92,6 +93,7 @@ done
 
 Purge-Local-cloud()
 {
+helm uninstall redis
 SERVICE_PATHS=(services/random-*)
 for SERVICE_PATH in "${!SERVICE_PATHS[@]}"; do
     cd ${SERVICE_PATHS[$SERVICE_PATH]}
